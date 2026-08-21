@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <nav>
-        <ul>
+        <ul className="flex flex-wrap gap-4">
           <li>
             <Link to="/">Home</Link>
           </li>
