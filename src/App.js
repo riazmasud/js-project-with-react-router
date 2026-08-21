@@ -20,84 +20,89 @@ import Users from "./pages/Users";
 import TasksList from "./pages/TasksList";
 import Wordle from "./pages/Wordle";
 
+const navLinkClasses =
+  "block px-3 py-1.5 rounded-md border border-slate-300 bg-slate-800 text-white hover:bg-slate-600 transition-colors";
+
 function App() {
   return (
     <>
       <nav>
         <ul className="flex flex-wrap gap-4">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className={navLinkClasses}>Home</Link>
           </li>
           <li>
-            <Link to="/books">Books</Link>
+            <Link to="/books" className={navLinkClasses}>Books</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about" className={navLinkClasses}>About</Link>
           </li>
           <li>
-            <Link to="/array">Array</Link>
+            <Link to="/array" className={navLinkClasses}>Array</Link>
           </li>
           <li>
-            <Link to="/showhide">Show/Hide</Link>
+            <Link to="/showhide" className={navLinkClasses}>Show/Hide</Link>
           </li>
           <li>
-            <Link to="/todo">Todo</Link>
+            <Link to="/todo" className={navLinkClasses}>Todo</Link>
           </li>
           <li>
-            <Link to="/todolocalstorage">Todo Local Storage</Link>
+            <Link to="/todolocalstorage" className={navLinkClasses}>Todo Local Storage</Link>
           </li>
           <li>
-            <Link to="/userlist">User List</Link>
+            <Link to="/userlist" className={navLinkClasses}>User List</Link>
           </li>
           <li>
-            <Link to="/autocomplete">Auto Complete</Link>
+            <Link to="/autocomplete" className={navLinkClasses}>Auto Complete</Link>
           </li>
           <li>
-            <Link to="/productpage">Product Page</Link>
+            <Link to="/productpage" className={navLinkClasses}>Product Page</Link>
           </li>
           <li>
-            <Link to="/counter">Counter</Link>
+            <Link to="/counter" className={navLinkClasses}>Counter</Link>
           </li>
           <li>
-            <Link to="/greetings">Greetings</Link>
+            <Link to="/greetings" className={navLinkClasses}>Greetings</Link>
           </li>
           <li>
-            <Link to="/users">Users</Link>
+            <Link to="/users" className={navLinkClasses}>Users</Link>
           </li>
           <li>
-            <Link to="/tasks">Tasks List</Link>
+            <Link to="/tasks" className={navLinkClasses}>Tasks List</Link>
           </li>
           <li>
-            <Link to="/wordle">Wordle</Link>
+            <Link to="/wordle" className={navLinkClasses}>Wordle</Link>
           </li>
           <li>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/contact" className={navLinkClasses}>Contact Us</Link>
           </li>
         </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/array" element={<Array />} />
-        <Route path="/books">
-          <Route index element={<BookList />} />
-          <Route path=":id" element={<Book />} />
-          <Route path="new" element={<NewBook />} />
-        </Route>
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/showhide" element={<ShowHide />} />
-        <Route path="/todo" element={<Todo />} />
-        <Route path="/todolocalstorage" element={<TodoLocalStorage />} />
-        <Route path="/userlist" element={<UserList />} />
-        <Route path="/autocomplete" element={<AutoComplete />} />
-        <Route path="/productpage" element={<ProductPage />} />
-        <Route path="/counter" element={<Counter />} />
-        <Route path="/greetings" element={<Greetings />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/tasks" element={<TasksList />} />
-        <Route path="/wordle" element={<Wordle />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <main className="max-w-3xl mx-auto px-4 py-6">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/array" element={<Array />} />
+          <Route path="/books">
+            <Route index element={<BookList />} />
+            <Route path=":id" element={<Book />} />
+            <Route path="new" element={<NewBook />} />
+          </Route>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/showhide" element={<ShowHide />} />
+          <Route path="/todo" element={<Todo />} />
+          <Route path="/todolocalstorage" element={<TodoLocalStorage />} />
+          <Route path="/userlist" element={<UserList />} />
+          <Route path="/autocomplete" element={<AutoComplete />} />
+          <Route path="/productpage" element={<ProductPage />} />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/greetings" element={<Greetings />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/tasks" element={<TasksList />} />
+          <Route path="/wordle" element={<Wordle />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
     </>
   );
 }
