@@ -19,6 +19,7 @@ import Greetings from "./pages/Greetings";
 import Users from "./pages/Users";
 import TasksList from "./pages/TasksList";
 import Wordle from "./pages/Wordle";
+import ScrubShop from "./pages/ScrubShop";
 
 const navLinkClasses =
   "block px-3 py-1.5 rounded-md border border-slate-300 bg-slate-800 text-white hover:bg-slate-600 transition-colors";
@@ -29,52 +30,89 @@ function App() {
       <nav>
         <ul className="flex flex-wrap gap-4">
           <li>
-            <Link to="/" className={navLinkClasses}>Home</Link>
+            <Link to="/" className={navLinkClasses}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/books" className={navLinkClasses}>Books</Link>
+            <Link to="/books" className={navLinkClasses}>
+              Books
+            </Link>
           </li>
           <li>
-            <Link to="/about" className={navLinkClasses}>About</Link>
+            <Link to="/about" className={navLinkClasses}>
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/array" className={navLinkClasses}>Array</Link>
+            <Link to="/array" className={navLinkClasses}>
+              Array
+            </Link>
           </li>
           <li>
-            <Link to="/showhide" className={navLinkClasses}>Show/Hide</Link>
+            <Link to="/showhide" className={navLinkClasses}>
+              Show/Hide
+            </Link>
           </li>
           <li>
-            <Link to="/todo" className={navLinkClasses}>Todo</Link>
+            <Link to="/todo" className={navLinkClasses}>
+              Todo
+            </Link>
           </li>
           <li>
-            <Link to="/todolocalstorage" className={navLinkClasses}>Todo Local Storage</Link>
+            <Link to="/todolocalstorage" className={navLinkClasses}>
+              Todo Local Storage
+            </Link>
           </li>
           <li>
-            <Link to="/userlist" className={navLinkClasses}>User List</Link>
+            <Link to="/userlist" className={navLinkClasses}>
+              User List
+            </Link>
           </li>
           <li>
-            <Link to="/autocomplete" className={navLinkClasses}>Auto Complete</Link>
+            <Link to="/autocomplete" className={navLinkClasses}>
+              Auto Complete
+            </Link>
           </li>
           <li>
-            <Link to="/productpage" className={navLinkClasses}>Product Page</Link>
+            <Link to="/productpage" className={navLinkClasses}>
+              Product Page
+            </Link>
           </li>
           <li>
-            <Link to="/counter" className={navLinkClasses}>Counter</Link>
+            <Link to="/counter" className={navLinkClasses}>
+              Counter
+            </Link>
           </li>
           <li>
-            <Link to="/greetings" className={navLinkClasses}>Greetings</Link>
+            <Link to="/greetings" className={navLinkClasses}>
+              Greetings
+            </Link>
           </li>
           <li>
-            <Link to="/users" className={navLinkClasses}>Users</Link>
+            <Link to="/users" className={navLinkClasses}>
+              Users
+            </Link>
           </li>
           <li>
-            <Link to="/tasks" className={navLinkClasses}>Tasks List</Link>
+            <Link to="/tasks" className={navLinkClasses}>
+              Tasks List
+            </Link>
           </li>
           <li>
-            <Link to="/wordle" className={navLinkClasses}>Wordle</Link>
+            <Link to="/wordle" className={navLinkClasses}>
+              Wordle
+            </Link>
           </li>
           <li>
-            <Link to="/contact" className={navLinkClasses}>Contact Us</Link>
+            <Link to="/scrubshop" className={navLinkClasses}>
+              Scrub Shop
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className={navLinkClasses}>
+              Contact Us
+            </Link>
           </li>
         </ul>
       </nav>
@@ -100,6 +138,7 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/tasks" element={<TasksList />} />
           <Route path="/wordle" element={<Wordle />} />
+          <Route path="/scrubshop" element={<ScrubShop />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

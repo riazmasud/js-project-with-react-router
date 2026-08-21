@@ -95,11 +95,14 @@ const TasksList = () => {
       <div>
         <h2>New Task</h2>
         <input
+          className="mr-2"
           value={newTask}
           placeholder="Add your task..."
           onChange={(e) => addNewTask(e)}
         />
-        <button onClick={updateNewTask}>Add Task</button>
+        <button className="mr-2" onClick={updateNewTask}>
+          Add Task
+        </button>
       </div>
       <br />
       <div>
@@ -123,22 +126,31 @@ const TasksList = () => {
         {displayedTasks.map((task) => (
           <div key={task.id}>
             <input
+              className="mr-2"
               type="checkbox"
               checked={task.completed}
               onChange={() => toggleTask(task.id)}
             />
 
-            <span>{task.title}</span>
+            <span className="mr-2">{task.title}</span>
 
-            <button onClick={() => deleteTask(task.id)}>Delete</button>
+            <button className="mr-2" onClick={() => deleteTask(task.id)}>
+              Delete
+            </button>
           </div>
         ))}
       </div>
       <br />
       <div>
-        <button onClick={() => setFilter("all")}>Show All</button>
-        <button onClick={() => setFilter("active")}>Show Active</button>
-        <button onClick={() => setFilter("completed")}>Show Completed</button>
+        <button className="mr-2" onClick={() => setFilter("all")}>
+          Show All
+        </button>
+        <button className="mr-2" onClick={() => setFilter("active")}>
+          Show Active
+        </button>
+        <button className="mr-2" onClick={() => setFilter("completed")}>
+          Show Completed
+        </button>
       </div>
       <br />
       <div>{remaining} tasks remaining</div>
