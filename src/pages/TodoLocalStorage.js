@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
+
+const STORAGE_KEY = "js-project-with-react-router:todos";
+
 const TodoLocalStorage = () => {
   const [input, setInput] = useState("");
   const [items, setItems] = useState(() => {
-    const saved = localStorage.getItem("todos");
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      return Array.isArray(saved) ? saved : [];
+    } catch {
+      return [];
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(items));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   }, [items]);
   const addInput = (e) => {
     setInput(e.target.value);
