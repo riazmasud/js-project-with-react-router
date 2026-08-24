@@ -34,7 +34,7 @@ function App() {
               Home
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/books" className={navLinkClasses}>
               Books
             </Link>
@@ -48,7 +48,7 @@ function App() {
             <Link to="/array" className={navLinkClasses}>
               Array
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/showhide" className={navLinkClasses}>
               Show/Hide
