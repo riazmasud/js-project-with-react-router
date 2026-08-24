@@ -50,3 +50,9 @@
     }
   }
 }
+
+.search {
+  display: flex;
+  align-items: center; /* Vertically centers the text and the box */
+  gap: 10px; /* Adds space between the label and the input */
+}
