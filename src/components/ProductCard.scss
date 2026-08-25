@@ -45,7 +45,9 @@
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -234,7 +236,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 12px;
-  border: 1px solid #eee;
+  border: 1px solid #cdcdcd;
   border-radius: 6px;
   margin-bottom: 10px;
 }
@@ -258,6 +260,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
@@ -285,7 +288,7 @@
 
 .remove-btn {
   position: absolute;
-  top: 6px;
+  top: 0px;
   right: 6px;
   width: 20px;
   height: 20px;
@@ -298,6 +301,8 @@
   color: #999;
   font-size: 16px;
   cursor: pointer;
+  background-color: black;
+  color: white;
 
   &:hover {
     color: #d0011b;
