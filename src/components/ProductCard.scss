@@ -51,8 +51,111 @@
   }
 }
 
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
 .search {
   display: flex;
   align-items: center; /* Vertically centers the text and the box */
   gap: 10px; /* Adds space between the label and the input */
+}
+
+.drop-down {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.drop-down label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.drop-down select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  min-width: 140px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='%23555' d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.drop-down select:hover {
+  border-color: #999;
+}
+
+.drop-down select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.drop-down select:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.drop-down option {
+  padding: 8px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-items > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-items > div span:first-child {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.cart-items > div span:nth-child(2) {
+  color: #666;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.cart-items > div span:last-child {
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: right;
+}
+
+.cart-items > div:last-child {
+  border-bottom: none;
+}
+
+.shopping-cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
 }

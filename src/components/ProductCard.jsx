@@ -1,5 +1,5 @@
 import "./ProductCard.scss";
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addToCart }) => {
   const { image, name, price, color, brand } = product;
   return (
     <div className="product-card">
@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
             <span>Price: </span>
             <span>${price.toFixed(2)}</span>
           </div>
-          <button>Add To Cart</button>
+          <button onClick={() => addToCart(product)}>Add To Cart</button>
         </div>
       </div>
     </div>
