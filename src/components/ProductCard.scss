@@ -1,50 +1,113 @@
+.scrub-shop {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  > h1 {
+    margin: 0 0 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+}
+
+.products-page {
+  display: grid;
+  gap: 20px;
+}
+
+.products-and-cart {
+  display: grid;
+  grid-template-columns: 1fr 400px; // catalog flexible, cart fixed-ish width
+  gap: 24px;
+  align-items: start; // important, see note below
+}
+
+@media (max-width: 768px) {
+  .products-and-cart {
+    grid-template-columns: 1fr; // stack vertically
+  }
+}
+
+.cart-wrapper {
+  position: sticky;
+  top: 20px;
+}
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
-  .product-card {
-    border: 1px solid gray;
-    border-radius: 5px;
-    /* box-shadow: 2px 10px 25px 5px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 2px 10px 25px 5px rgba(0, 0, 0, 0.5); */
+}
+
+.product-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .product {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    img {
-      height: 200px;
-      object-fit: cover;
-    }
-    .product {
-      padding: 25px;
+    gap: 6px;
 
-      .name,
-      .color,
-      .brand {
+    .name,
+    .color,
+    .brand {
+      font-size: 14px;
+      span:first-child {
+        color: #d0011b;
+        font-weight: 600;
+      }
+      span:last-child {
+        color: black;
+        //font-weight: bold;
+      }
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      div {
         span:first-child {
           color: #d0011b;
         }
         span:last-child {
           color: black;
+          font-weight: 700;
           //font-weight: bold;
         }
       }
+      button {
+        background-color: #d0011b;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 14px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
 
-      .price {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        div {
-          span:first-child {
-            color: #d0011b;
-          }
-          span:last-child {
-            color: black;
-            //font-weight: bold;
-          }
-        }
-        button {
-          background-color: #d0011b;
+        &:hover {
+          background-color: #a5000f;
         }
       }
     }
@@ -53,22 +116,47 @@
 
 .filter-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
+  padding: 16px 20px;
+  background-color: #f7f7f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
 }
 
 .search {
   display: flex;
   align-items: center; /* Vertically centers the text and the box */
   gap: 10px; /* Adds space between the label and the input */
+
+  label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+
+  input {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    min-width: 200px;
+
+    &:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+  }
 }
 
 .drop-down {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 16px;
 }
 
 .drop-down label {
@@ -114,42 +202,106 @@
   padding: 8px;
 }
 
+.cart {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 20px;
+
+  h1 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+}
+
+.cart-empty {
+  padding: 24px 0;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
 .cart-items {
   display: flex;
   flex-direction: column;
+  margin-top: 12px;
 }
 
-.cart-items > div {
+.cart-item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
 
-.cart-items > div span:first-child {
+.cart-item-name {
   flex: 1;
   font-weight: 500;
   color: #333;
+  padding-right: 20px;
 }
 
-.cart-items > div span:nth-child(2) {
-  color: #666;
-  font-size: 14px;
-  white-space: nowrap;
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  button {
+    width: 26px;
+    height: 26px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+
+  .qty-value {
+    min-width: 18px;
+    text-align: center;
+    font-size: 14px;
+  }
 }
 
-.cart-items > div span:last-child {
+.cart-item-price {
   font-weight: 600;
   color: #333;
   white-space: nowrap;
-  min-width: 80px;
+  min-width: 70px;
   text-align: right;
 }
 
-.cart-items > div:last-child {
-  border-bottom: none;
+.remove-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: #999;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    color: #d0011b;
+  }
 }
 
 .shopping-cart {
@@ -158,4 +310,8 @@
   justify-content: space-between;
   gap: 16px;
   padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
 }

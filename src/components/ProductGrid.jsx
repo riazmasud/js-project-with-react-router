@@ -135,90 +135,94 @@ const ProductGrid = () => {
     <>
       {loading && <div>Loading....</div>}
       {error && <div>{error}</div>}
-      <div className="filter-section">
-        <div className="search">
-          <label htmlFor="searchTerm">Search:</label>
-          <input
-            type="text"
-            id="searchTerm"
-            name="searchTerm"
-            placeholder="Enter your search..."
-            value={searchTerm}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="drop-down">
-          <label htmlFor="category-select">Category: </label>
-
-          <select
-            id="category-select"
-            value={categoryFilter}
-            onChange={handleCategoryChange}
-          >
-            <option value="all">All</option>
-            {categories.map((category, index) => {
-              return (
-                <option value={category} key={category}>
-                  {category}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div className="drop-down">
-          <label htmlFor="color-select">Color: </label>
-
-          <select
-            id="color-select"
-            value={colorFilter}
-            onChange={handleColorChange}
-          >
-            <option value="all">All</option>
-            {colors.map((color, index) => {
-              return (
-                <option value={color} key={color}>
-                  {color}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div className="drop-down">
-          <label htmlFor="gender-select">Gender: </label>
-
-          <select
-            id="gender-select"
-            value={genderFilter}
-            onChange={handleGenderChange}
-          >
-            <option value="all">All</option>
-            {genders.map((gender, index) => {
-              return (
-                <option value={gender} key={gender}>
-                  {gender}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-      </div>
-
-      <Cart
-        cart={cart}
-        removeFromCart={removeFromCart}
-        updateQuantity={updateQuantity}
-      />
-
-      <div className="product-grid">
-        {filteredProducts.map((product) => {
-          return (
-            <ProductCard
-              product={product}
-              key={product.id}
-              addToCart={addToCart}
+      <div className="products-page">
+        <div className="filter-section">
+          <div className="search">
+            <label htmlFor="searchTerm">Search:</label>
+            <input
+              type="text"
+              id="searchTerm"
+              name="searchTerm"
+              placeholder="Enter your search..."
+              value={searchTerm}
+              onChange={handleChange}
             />
-          );
-        })}
+          </div>
+          <div className="drop-down">
+            <label htmlFor="category-select">Category: </label>
+
+            <select
+              id="category-select"
+              value={categoryFilter}
+              onChange={handleCategoryChange}
+            >
+              <option value="all">All</option>
+              {categories.map((category, index) => {
+                return (
+                  <option value={category} key={category}>
+                    {category}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className="drop-down">
+            <label htmlFor="color-select">Color: </label>
+
+            <select
+              id="color-select"
+              value={colorFilter}
+              onChange={handleColorChange}
+            >
+              <option value="all">All</option>
+              {colors.map((color, index) => {
+                return (
+                  <option value={color} key={color}>
+                    {color}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className="drop-down">
+            <label htmlFor="gender-select">Gender: </label>
+
+            <select
+              id="gender-select"
+              value={genderFilter}
+              onChange={handleGenderChange}
+            >
+              <option value="all">All</option>
+              {genders.map((gender, index) => {
+                return (
+                  <option value={gender} key={gender}>
+                    {gender}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </div>
+        <div className="products-and-cart">
+          <div className="product-grid">
+            {filteredProducts.map((product) => {
+              return (
+                <ProductCard
+                  product={product}
+                  key={product.id}
+                  addToCart={addToCart}
+                />
+              );
+            })}
+          </div>
+          <div className="cart-wrapper">
+            <Cart
+              cart={cart}
+              removeFromCart={removeFromCart}
+              updateQuantity={updateQuantity}
+            />
+          </div>
+        </div>
       </div>
     </>
   );

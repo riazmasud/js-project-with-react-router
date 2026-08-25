@@ -1,36 +1,46 @@
 import CartCount from "./CartCount";
 const Cart = ({ cart, removeFromCart, updateQuantity }) => {
   return (
-    <div>
+    <div className="cart">
       <h1>Shopping Cart</h1>
 
       <CartCount cart={cart} />
-      <div>
+      {cart.length === 0 ? (
+        <div className="cart-empty">Your cart is empty</div>
+      ) : (
         <div className="cart-items">
           {cart.map((item) => {
             return (
-              <div key={item.product.id}>
-                <span>{item.product.name}</span>
-                <span>Qty: {item.quantity}</span>
-                <span>
-                  Price: ${(item.product.price * item.quantity).toFixed(2)}
-                </span>
-                <button onClick={() => updateQuantity(item.product.id, "add")}>
-                  +
-                </button>
+              <div className="cart-item" key={item.product.id}>
                 <button
-                  onClick={() => updateQuantity(item.product.id, "remove")}
+                  className="remove-btn"
+                  onClick={() => removeFromCart(item.product.id)}
+                  aria-label="Remove item"
                 >
-                  -
+                  &times;
                 </button>
-                <button onClick={() => removeFromCart(item.product.id)}>
-                  Remove
-                </button>
+                <span className="cart-item-name">{item.product.name}</span>
+                <div className="qty-controls">
+                  <button
+                    onClick={() => updateQuantity(item.product.id, "remove")}
+                  >
+                    &minus;
+                  </button>
+                  <span className="qty-value">{item.quantity}</span>
+                  <button
+                    onClick={() => updateQuantity(item.product.id, "add")}
+                  >
+                    +
+                  </button>
+                </div>
+                <span className="cart-item-price">
+                  ${(item.product.price * item.quantity).toFixed(2)}
+                </span>
               </div>
             );
           })}
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 const CartCount = ({ cart }) => {
+  const emptyCart = "Your cart is empty";
   const cartCount = cart.reduce((acc, item) => {
     return item.quantity + acc;
   }, 0);

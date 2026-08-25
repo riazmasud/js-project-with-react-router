@@ -7,7 +7,7 @@ const Products = [
     color: "Caribbean Blue",
     brand: "Cherokee",
     gender: "women", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/1AC1DD/FFFFFF?text=Scrub+Top",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const Products = [
     color: "Blue",
     brand: "Cherokee",
     gender: "men", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/000080/FFFFFF?text=Scrub+Top",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const Products = [
     color: "Red",
     brand: "Cherokee",
     gender: "women", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/FF0000/FFFFFF?text=Scrub+Top",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const Products = [
     color: "Black",
     brand: "Cherokee",
     gender: "men", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/000000/FFFFFF?text=Scrub+Top",
   },
   {
     id: 5,
@@ -47,27 +47,27 @@ const Products = [
     color: "Charcoal",
     brand: "Cherokee",
     gender: "women", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/36454F/FFFFFF?text=Scrub+Top",
   },
   {
     id: 6,
     name: "Men's V-Neck Scrub Top",
     price: 74.99,
     category: "tops", // tops | pants | jackets | labcoats
-    color: "White",
+    color: "Blue",
     brand: "Cherokee",
     gender: "men", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/000080/FFFFFF?text=Scrub+Top",
   },
   {
     id: 7,
     name: "Men's V-Neck Scrub Top",
     price: 74.99,
     category: "labcoats", // tops | pants | jackets | labcoats
-    color: "White",
+    color: "Charcoal",
     brand: "Grey's Anatomy",
     gender: "men", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/36454F/FFFFFF?text=Scrub+Top",
   },
   {
     id: 8,
@@ -77,7 +77,7 @@ const Products = [
     color: "Black",
     brand: "Grey's Anatomy",
     gender: "men", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/000000/FFFFFF?text=Mens+Pants",
   },
   {
     id: 9,
@@ -87,17 +87,17 @@ const Products = [
     color: "Black",
     brand: "Grey's Anatomy",
     gender: "unisex", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/000000/FFFFFF?text=Scrub+Top",
   },
   {
     id: 10,
     name: "Generic Scrub Top",
     price: 14.99,
     category: "tops", // tops | pants | jackets | labcoats
-    color: "White",
+    color: "Red",
     brand: "Figs",
     gender: "unisex", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/FF0000/FFFFFF?text=Generic+Scrub+Top",
   },
   {
     id: 11,
@@ -107,17 +107,17 @@ const Products = [
     color: "Gray",
     brand: "Figs",
     gender: "men", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/808080/FFFFFF?text=Generic+Lab+Coat",
   },
   {
     id: 12,
     name: "Men Jacket",
     price: 74.99,
     category: "jackets", // tops | pants | jackets | labcoats
-    color: "White",
+    color: "Black",
     brand: "Grey's Anatomy",
     gender: "men", // women | men | unisex
-    image: "https://placehold.co/300x300?text=Scrub+Top",
+    image: "https://placehold.co/300x300/000000/FFFFFF?text=Mens+Jacket",
   },
 ];
 
