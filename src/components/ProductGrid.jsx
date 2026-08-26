@@ -1,5 +1,7 @@
 import ProductCard from "./ProductCard";
 import Cart from "./Cart";
+import SearchInput from "./SearchInput";
+import DropDown from "./DropDown";
 import fakeFetchProducts from "../data/fakeApi";
 import { useState, useEffect, useMemo } from "react";
 
@@ -137,71 +139,28 @@ const ProductGrid = () => {
       {error && <div>{error}</div>}
       <div className="products-page">
         <div className="filter-section">
-          <div className="search">
-            <label htmlFor="searchTerm">Search:</label>
-            <input
-              type="text"
-              id="searchTerm"
-              name="searchTerm"
-              placeholder="Enter your search..."
-              value={searchTerm}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="drop-down">
-            <label htmlFor="category-select">Category: </label>
-
-            <select
-              id="category-select"
-              value={categoryFilter}
-              onChange={handleCategoryChange}
-            >
-              <option value="all">All</option>
-              {categories.map((category, index) => {
-                return (
-                  <option value={category} key={category}>
-                    {category}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <div className="drop-down">
-            <label htmlFor="color-select">Color: </label>
-
-            <select
-              id="color-select"
-              value={colorFilter}
-              onChange={handleColorChange}
-            >
-              <option value="all">All</option>
-              {colors.map((color, index) => {
-                return (
-                  <option value={color} key={color}>
-                    {color}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <div className="drop-down">
-            <label htmlFor="gender-select">Gender: </label>
-
-            <select
-              id="gender-select"
-              value={genderFilter}
-              onChange={handleGenderChange}
-            >
-              <option value="all">All</option>
-              {genders.map((gender, index) => {
-                return (
-                  <option value={gender} key={gender}>
-                    {gender}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+          <SearchInput searchTerm={searchTerm} handleChange={handleChange} />
+          <DropDown
+            id={"category-select"}
+            label={"Category"}
+            options={categories}
+            value={categoryFilter}
+            onChange={handleCategoryChange}
+          />
+          <DropDown
+            id={"color-select"}
+            label={"Color"}
+            options={colors}
+            value={colorFilter}
+            onChange={handleColorChange}
+          />
+          <DropDown
+            id={"gender-select"}
+            label={"Gender"}
+            options={genders}
+            value={genderFilter}
+            onChange={handleGenderChange}
+          />
         </div>
         <div className="products-and-cart">
           <div className="product-grid">
