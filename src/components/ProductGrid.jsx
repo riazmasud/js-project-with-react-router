@@ -2,6 +2,7 @@ import ProductCard from "./ProductCard";
 import Cart from "./Cart";
 import SearchInput from "./SearchInput";
 import DropDown from "./DropDown";
+import SortDropDown from "./SortDropDown";
 import fakeFetchProducts from "../data/fakeApi";
 import { useState, useEffect, useMemo } from "react";
 
@@ -16,6 +17,8 @@ const ProductGrid = () => {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [colorFilter, setColorFilter] = useState("all");
   const [genderFilter, setGenderFilter] = useState("all");
+  const [sortOption, setSortOption] = useState("none");
+  const [visibleCount, setVisibleCount] = useState(8);
 
   const [cart, setCart] = useState([]);
 
@@ -64,6 +67,23 @@ const ProductGrid = () => {
     genderFilter,
   ]);
 
+  useEffect(() => {
+    setVisibleCount(8);
+  }, [filteredProducts]);
+
+  const sortedProducts = useMemo(() => {
+    const sorted = [...filteredProducts];
+    if (sortOption === "price-asc") {
+      sorted.sort((a, b) => a.price - b.price);
+    } else if (sortOption === "price-desc") {
+      sorted.sort((a, b) => b.price - a.price);
+    } else if (sortOption === "name-asc") {
+      sorted.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    return sorted;
+  }, [filteredProducts, sortOption]);
+
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -78,6 +98,14 @@ const ProductGrid = () => {
 
   const handleGenderChange = (e) => {
     setGenderFilter(e.target.value);
+  };
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 8);
   };
 
   const addToCart = (product) => {
@@ -161,18 +189,29 @@ const ProductGrid = () => {
             value={genderFilter}
             onChange={handleGenderChange}
           />
+          <SortDropDown
+            id="sort-select"
+            label="Sort"
+            value={sortOption}
+            onChange={handleSortChange}
+          />
         </div>
         <div className="products-and-cart">
-          <div className="product-grid">
-            {filteredProducts.map((product) => {
-              return (
-                <ProductCard
-                  product={product}
-                  key={product.id}
-                  addToCart={addToCart}
-                />
-              );
-            })}
+          <div className="product-grid-wrapper">
+            <div className="product-grid">
+              {sortedProducts.slice(0, visibleCount).map((product) => {
+                return (
+                  <ProductCard
+                    product={product}
+                    key={product.id}
+                    addToCart={addToCart}
+                  />
+                );
+              })}
+            </div>
+            {visibleCount < sortedProducts.length && (
+              <button onClick={handleLoadMore}>Load More</button>
+            )}
           </div>
           <div className="cart-wrapper">
             <Cart

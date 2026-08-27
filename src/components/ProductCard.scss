@@ -28,6 +28,11 @@
   }
 }
 
+.product-grid-wrapper {
+  display: grid;
+  gap: 24px;
+}
+
 .cart-wrapper {
   position: sticky;
   top: 20px;
@@ -118,7 +123,7 @@
 
 .filter-section {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
@@ -126,6 +131,9 @@
   background-color: #f7f7f8;
   border: 1px solid #e5e5e5;
   border-radius: 8px;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 }
 
 .search {
