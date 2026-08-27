@@ -10,6 +10,23 @@
   }
 }
 
+.page-intro {
+  max-width: 800px;
+  margin: 0 0 24px;
+
+  p {
+    margin: 0 0 8px;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  .tech-stack {
+    font-size: 13px;
+    color: #777;
+    font-style: italic;
+  }
+}
+
 .products-page {
   display: grid;
   gap: 20px;

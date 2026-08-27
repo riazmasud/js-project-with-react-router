@@ -39,7 +39,28 @@ const Wordle = () => {
   };
 
   const gameOver = submittedGuess.length >= MAX_TRIES && !showWinText;
+  const introStyle = {
+    maxWidth: "700px",
+    margin: "0 0 24px",
+    padding: "16px 20px",
+    backgroundColor: "#f7f7f8",
+    border: "1px solid #e5e5e5",
+    borderRadius: "8px",
+  };
 
+  const introParagraphStyle = {
+    margin: "0 0 8px",
+    lineHeight: "1.5",
+    color: "#333",
+    fontSize: "15px",
+  };
+
+  const introTechStyle = {
+    fontSize: "13px",
+    color: "#777",
+    fontStyle: "italic",
+    margin: 0,
+  };
   const divStyle = {
     display: "flex",
     alignItems: "center",
@@ -73,6 +94,22 @@ const Wordle = () => {
   return (
     <div>
       <h1>Wordle</h1>
+      <div style={introStyle}>
+        <p style={introParagraphStyle}>
+          A lightweight <strong>Wordle</strong> clone built with React to
+          practice controlled form inputs, derived state (tracking attempts
+          remaining and win/loss conditions from a list of guesses), and
+          per-letter conditional styling. Guess the hidden 5-letter word in 5
+          tries — correct letters in the right position are highlighted in
+          green.
+        </p>
+        <p style={introTechStyle}>
+          Built with React (useState, controlled inputs, array-derived state).
+        </p>
+      </div>
+      <div>
+        <h2>Make a guess...</h2>
+      </div>
       <div>
         <input
           value={current}

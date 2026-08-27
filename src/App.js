@@ -34,6 +34,11 @@ function App() {
               Home
             </Link>
           </li>
+          <li>
+            <Link to="/wordle" className={navLinkClasses}>
+              Wordle
+            </Link>
+          </li>
           {/* <li>
             <Link to="/books" className={navLinkClasses}>
               Books
@@ -48,12 +53,13 @@ function App() {
             <Link to="/array" className={navLinkClasses}>
               Array
             </Link>
-          </li> */}
+          </li> 
           <li>
             <Link to="/showhide" className={navLinkClasses}>
               Show/Hide
             </Link>
           </li>
+          */}
           <li>
             <Link to="/todo" className={navLinkClasses}>
               Todo
@@ -64,44 +70,40 @@ function App() {
               Todo Local Storage
             </Link>
           </li>
+          {/*           
           <li>
             <Link to="/userlist" className={navLinkClasses}>
               User List
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/autocomplete" className={navLinkClasses}>
               Auto Complete
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/productpage" className={navLinkClasses}>
               Product Page
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/counter" className={navLinkClasses}>
               Counter
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/greetings" className={navLinkClasses}>
               Greetings
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/users" className={navLinkClasses}>
               Users
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/tasks" className={navLinkClasses}>
               Tasks List
-            </Link>
-          </li>
-          <li>
-            <Link to="/wordle" className={navLinkClasses}>
-              Wordle
             </Link>
           </li>
           <li>
@@ -109,16 +111,16 @@ function App() {
               Scrub Shop
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/contact" className={navLinkClasses}>
               Contact Us
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
       <main className="max-w-6xl mx-auto px-4 py-6">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ScrubShop />} />
           <Route path="/about" element={<About />} />
           <Route path="/array" element={<Array />} />
           <Route path="/books">
