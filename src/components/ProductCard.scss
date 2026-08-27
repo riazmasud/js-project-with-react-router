@@ -296,8 +296,8 @@
 
 .remove-btn {
   position: absolute;
-  top: 0px;
-  right: 6px;
+  top: -4px;
+  right: 0px;
   width: 20px;
   height: 20px;
   line-height: 1;
@@ -327,4 +327,21 @@
   margin-bottom: 4px;
   font-size: 14px;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .cart-item {
+    padding-right: 50px; // room for the 44px button + a little breathing space
+  }
+  .qty-controls button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .remove-btn {
+    width: 44px;
+    height: 44px;
+    top: -4px;
+    right: 0;
+  }
 }

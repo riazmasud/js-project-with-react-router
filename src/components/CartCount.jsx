@@ -7,7 +7,7 @@ const CartCount = ({ cart }) => {
     return item.product.price * item.quantity + total;
   }, 0);
   return (
-    <div className="shopping-cart">
+    <div className="shopping-cart" aria-live="polite">
       <div>
         <span>Items: </span>
         <span>{cartCount}</span>

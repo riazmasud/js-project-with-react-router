@@ -20,7 +20,15 @@ const ProductGrid = () => {
   const [sortOption, setSortOption] = useState("none");
   const [visibleCount, setVisibleCount] = useState(8);
 
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    try {
+      const saved = localStorage.getItem("scrubshop-cart");
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  });
 
   useEffect(() => {
     setLoading(true);
@@ -42,6 +50,10 @@ const ProductGrid = () => {
     }, 400);
     return () => clearTimeout(timer);
   }, [searchTerm]);
+
+  useEffect(() => {
+    localStorage.setItem("scrubshop-cart", JSON.stringify(cart));
+  }, [cart]);
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
