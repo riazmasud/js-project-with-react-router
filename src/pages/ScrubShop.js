@@ -1,12 +1,12 @@
+import { Outlet } from "react-router-dom";
 import PageIntro from "../components/PageIntro";
-import ProductGrid from "../components/ProductGrid";
 
 const ScrubShop = () => {
   return (
     <div className="scrub-shop">
       <h1>ScrubShop</h1>
       <PageIntro />
-      <ProductGrid />
+      <Outlet />
     </div>
   );
 };
