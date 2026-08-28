@@ -3,7 +3,8 @@ import Cart from "./Cart";
 import SearchInput from "./SearchInput";
 import DropDown from "./DropDown";
 import SortDropDown from "./SortDropDown";
-import fakeFetchProducts from "../data/fakeApi";
+//import fakeFetchProducts from "../data/fakeApi";
+import fetchProducts from "../data/api.js";
 import { useState, useEffect, useMemo } from "react";
 
 const ProductGrid = () => {
@@ -30,9 +31,25 @@ const ProductGrid = () => {
     }
   });
 
+  /* Get product from hard coded file */
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fakeFetchProducts()
+  //     .then((data) => {
+  //       setProducts(data);
+  //     })
+  //     .catch((e) => {
+  //       setError(e.message);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  /* Fetching real data from github json repo */
   useEffect(() => {
     setLoading(true);
-    fakeFetchProducts()
+    fetchProducts()
       .then((data) => {
         setProducts(data);
       })
