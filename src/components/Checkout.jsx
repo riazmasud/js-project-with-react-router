@@ -13,7 +13,7 @@ const Checkout = () => {
         removeFromCart={removeFromCart}
         updateQuantity={updateQuantity}
       />
-      <CheckoutForm />
+      {cart.length > 0 && <CheckoutForm />}
     </div>
   );
 };

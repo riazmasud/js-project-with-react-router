@@ -30,11 +30,11 @@ function App() {
               Todo Local Storage
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/counter" className={navLinkClasses}>
               Counter
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/tasks" className={navLinkClasses}>
               Tasks List
