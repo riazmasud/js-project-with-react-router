@@ -362,3 +362,132 @@
     right: 0;
   }
 }
+
+.checkout-form-wrapper {
+  max-width: 500px;
+  //margin: 24px auto;
+}
+
+.checkout-form {
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 24px;
+}
+
+.checkout-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.checkout-legend {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.checkout-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+
+  label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+
+  input {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+
+    &:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+  }
+}
+
+.checkout-submit {
+  width: 100%;
+  padding: 12px;
+  //background-color: #d0011b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  // &:hover:not(:disabled) {
+  //   background-color: #a5000f;
+  // }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.confirmation {
+  max-width: 600px;
+  //margin: 24px auto;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 24px;
+}
+
+.confirmation-banner {
+  //text-align: center;
+  margin-bottom: 20px;
+
+  h2 {
+    color: #d0011b;
+    margin: 0 0 8px;
+    font-size: 22px;
+  }
+
+  p {
+    color: #555;
+    margin: 0;
+  }
+}
+
+.confirmation-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.confirmation-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+.confirmation-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 16px;
+  padding-top: 12px;
+  border-top: 2px solid #333;
+}
+
+.confirmation-empty {
+  text-align: center;
+  color: #888;
+  padding: 20px 0;
+}

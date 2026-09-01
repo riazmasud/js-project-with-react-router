@@ -1,3 +1,4 @@
+import { useOutletContext } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import Cart from "./Cart";
 import SearchInput from "./SearchInput";
@@ -8,6 +9,9 @@ import fetchProducts from "../data/api.js";
 import { useState, useEffect, useMemo } from "react";
 
 const ProductGrid = () => {
+  const { cart, addToCart, removeFromCart, updateQuantity } =
+    useOutletContext();
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -20,16 +24,6 @@ const ProductGrid = () => {
   const [genderFilter, setGenderFilter] = useState("all");
   const [sortOption, setSortOption] = useState("none");
   const [visibleCount, setVisibleCount] = useState(8);
-
-  // const [cart, setCart] = useState([]);
-  const [cart, setCart] = useState(() => {
-    try {
-      const saved = localStorage.getItem("scrubshop-cart");
-      return saved ? JSON.parse(saved) : [];
-    } catch (e) {
-      return [];
-    }
-  });
 
   /* Get product from hard coded file */
   // useEffect(() => {
@@ -67,10 +61,6 @@ const ProductGrid = () => {
     }, 400);
     return () => clearTimeout(timer);
   }, [searchTerm]);
-
-  useEffect(() => {
-    localStorage.setItem("scrubshop-cart", JSON.stringify(cart));
-  }, [cart]);
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
@@ -137,58 +127,9 @@ const ProductGrid = () => {
     setVisibleCount((prev) => prev + 8);
   };
 
-  const addToCart = (product) => {
-    //alert(product.id);
-    setCart((prevCart) => {
-      const existingItem = prevCart.find(
-        (item) => item.product.id === product.id,
-      );
-
-      if (existingItem) {
-        // update quantity for that one item, leave others unchanged
-        return prevCart.map((item) =>
-          item.product.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
-      } else {
-        // add a new entry
-        return [...prevCart, { product, quantity: 1 }];
-      }
-    });
-  };
-
   const categories = [...new Set(products.map((product) => product.category))];
   const colors = [...new Set(products.map((product) => product.color))];
   const genders = [...new Set(products.map((product) => product.gender))];
-
-  const removeFromCart = (productId) => {
-    setCart((prevCart) => {
-      return prevCart.filter((item) => {
-        return item.product.id !== productId;
-      });
-    });
-  };
-
-  const updateQuantity = (productId, delta) => {
-    setCart((prevCart) => {
-      if (delta === "add") {
-        return prevCart.map((item) =>
-          item.product.id === productId
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
-      } else if (delta === "remove") {
-        const updated = prevCart.map((item) =>
-          item.product.id === productId
-            ? { ...item, quantity: item.quantity - 1 }
-            : item,
-        );
-
-        return updated.filter((item) => item.quantity > 0);
-      }
-    });
-  };
 
   return (
     <>

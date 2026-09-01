@@ -1,5 +1,13 @@
+import { useNavigate, useLocation } from "react-router-dom";
 import CartCount from "./CartCount";
 const Cart = ({ cart, removeFromCart, updateQuantity }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isOnCheckoutPage = location.pathname === "/scrubshop/checkout";
+  const handleCheckout = () => {
+    navigate("/scrubshop/checkout");
+  };
   return (
     <div className="cart">
       <h1>Shopping Cart</h1>
@@ -40,6 +48,9 @@ const Cart = ({ cart, removeFromCart, updateQuantity }) => {
             );
           })}
         </div>
+      )}
+      {cart.length > 0 && !isOnCheckoutPage && (
+        <button onClick={handleCheckout}>Checkout</button>
       )}
     </div>
   );

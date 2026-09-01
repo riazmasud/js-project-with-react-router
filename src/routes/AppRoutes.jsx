@@ -20,6 +20,8 @@ import TasksList from "../pages/TasksList";
 import Wordle from "../pages/Wordle";
 import ScrubShop from "../pages/ScrubShop";
 import ProductGrid from "../components/ProductGrid";
+import Checkout from "../components/Checkout";
+import Confirmation from "../components/Confirmation";
 
 const AppRoutes = () => {
   return (
@@ -46,6 +48,8 @@ const AppRoutes = () => {
       <Route path="/wordle" element={<Wordle />} />
       <Route path="/scrubshop" element={<ScrubShop />}>
         <Route index element={<ProductGrid />} />
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="confirmation" element={<Confirmation />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
