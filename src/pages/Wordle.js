@@ -106,6 +106,12 @@ const Wordle = () => {
         <p style={introTechStyle}>
           Built with React (useState, controlled inputs, array-derived state).
         </p>
+        <br />
+        <p style={introTechStyle}>
+          Test using correct answer: <b>REACT</b>
+          <br />
+          it is set as a CONST in the code
+        </p>
       </div>
       <div>
         <h2>Make a guess...</h2>
